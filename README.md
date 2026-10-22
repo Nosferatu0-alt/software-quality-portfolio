@@ -78,9 +78,9 @@ it('deve permitir abrir os detalhes do produto correto', () => {
 ## Próximos passos
 
 - [ ] Completar a cobertura de testes (produtos, checkout e usuários especiais)
-- [ ] Comandos customizados (`cy.login()`) e *fixtures*
-- [ ] Testes *data-driven*
-- [ ] Integração contínua com GitHub Actions
+- [x] Comandos customizados (`cy.login()`) e *fixtures*
+- [X] Testes *data-driven*
+- [X] Integração contínua com GitHub Actions
 - [ ] Testes de API
 - [ ] Experimentar outras ferramentas de automação (Playwright, Selenium, entre outras)
 - [ ] Documentar casos de teste e relatórios de bug

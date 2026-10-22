@@ -1,0 +1,16 @@
+
+{
+  "valido": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "bloqueado": {
+    "username": "locked_out_user",
+    "password": "secret_sauce"
+  },
+  "checkout": {
+    "firstName": "Ana",
+    "lastName": "Silva",
+    "postalCode": "12345"
+  }
+}

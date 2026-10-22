@@ -1,4 +1,5 @@
 # Software Quality Portfolio
+![Cypress Tests](https://github.com/Nosferatu0-alt/software-quality-portfolio/actions/workflows/cypress.yml/badge.svg)
 
 Este repositório reúne os meus estudos em **Qualidade de Software (QA)**. Aqui eu desenvolvo minhas habilidades, conheço novas ferramentas e pratico raciocínio de teste e formas de automação.
 

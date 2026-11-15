@@ -62,7 +62,7 @@ Cypress 15 · Node.js · Python · pytest · requests · jsonschema · GitHub Ac
 - [x] Cypress E2E (comandos customizados, fixtures, data-driven) + CI
 - [x] Estratégia, plano, riscos, rastreabilidade, casos e template de bug
 - [x] Estrutura de testes de API (pytest) + CI
-- [ ] Executar a suíte de API, confirmar comportamentos e registrar bugs reais
+- [x] Executar a suíte de API, confirmar comportamentos e registrar bugs reais
 - [ ] Coleção Postman + Newman na CI
 - [ ] Selenium + pytest com Page Object Model (ADR-002)
 - [ ] Relatórios publicados (Allure / GitHub Pages)

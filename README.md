@@ -1,92 +1,59 @@
 # Software Quality Portfolio
-![Cypress Tests](https://github.com/Nosferatu0-alt/software-quality-portfolio/actions/workflows/cypress.yml/badge.svg)
 
-Este repositório reúne os meus estudos em **Qualidade de Software (QA)**. Aqui eu desenvolvo minhas habilidades, conheço novas ferramentas e pratico raciocínio de teste e formas de automação.
+[![Cypress Tests](https://github.com/Nosferatu0-alt/software-quality-portfolio/actions/workflows/cypress.yml/badge.svg)](https://github.com/Nosferatu0-alt/software-quality-portfolio/actions/workflows/cypress.yml)
 
-Estou sempre aberta a **sugestões, críticas e novos desafios**. Se você tem ideias de melhoria, outras ferramentas para eu experimentar ou cenários de teste que eu não cobri, fique à vontade para abrir uma *issue* ou um *pull request*.
+Portfólio de **Qualidade de Software (QA)** de Lucia Maria Reis Braga. Aqui eu pratico o raciocínio de teste de ponta a ponta: planejar, priorizar por risco, documentar, automatizar e reportar defeitos.
 
----
-
-## Projetos
-
-### `cypress-saucedemo/` — Testes E2E com Cypress
-
-Automação de testes end-to-end sobre o site de demonstração [Sauce Demo](https://www.saucedemo.com/), criado para prática de QA.
-
-**Ferramentas utilizadas até agora**
-
-- [Cypress](https://www.cypress.io/) 15
-- Node.js / npm
-- Site de estudo: https://www.saucedemo.com/
-
-**Áreas cobertas**
-
-- Login (sucesso, credenciais inválidas e demais cenários de autenticação)
-- Produtos
-- Carrinho
-- Checkout
-- Usuários especiais (`problem_user`, entre outros)
-
-Os testes seguem o padrão **AAA** (*Arrange, Act, Assert*), com `describe` / `it` organizando cada área e cada comportamento.
+Estou sempre aberta a **sugestões, críticas e novos desafios**. Abra uma *issue* ou *pull request*.
 
 ---
 
-## Como rodar
+## Sistema sob teste
+[SauceDemo](https://www.saucedemo.com), um e-commerce de demonstração criado para prática de QA.
 
-Pré-requisito: Node.js instalado.
+## Mapa do repositório
+| Pasta | O que mostra |
+|---|---|
+| [`docs/test-strategy.md`](docs/test-strategy.md) | Escopo, abordagem, critérios de entrada/saída |
+| [`docs/test-plan.md`](docs/test-plan.md) | Módulos, cobertura, métricas |
+| [`docs/risk-matrix.md`](docs/risk-matrix.md) | Priorização por impacto × probabilidade |
+| [`docs/traceability-matrix.md`](docs/traceability-matrix.md) | Requisito ↔ caso de teste ↔ automação |
+| [`docs/test-cases/`](docs/test-cases/) | Casos com pré-condição, passos e resultado esperado |
+| [`docs/bug-reports/`](docs/bug-reports/) | Defeitos reproduzíveis, com severidade e evidência |
+| [`docs/exploratory/`](docs/exploratory/) | Charters e notas de sessões exploratórias |
+| [`cypress-saucedemo/`](cypress-saucedemo/) | Automação E2E com Cypress |
 
+## Automação — `cypress-saucedemo/`
+- Cypress 15, Node.js/npm
+- Padrão **AAA** (Arrange, Act, Assert), comandos customizados (`cy.login()`), *fixtures* e testes *data-driven*
+- Integração contínua com GitHub Actions
+
+**Áreas cobertas:** login, produtos, carrinho, checkout e usuários especiais.
+
+### Como rodar
 ```bash
 cd cypress-saucedemo
 npm install
-npx cypress open    # modo interativo
-npx cypress run     # modo headless
+npx cypress open   # interativo
+npx cypress run    # headless
 ```
-
----
 
 ## Bugs identificados
+| ID | Resumo | Severidade |
+|---|---|---|
+| [BUG-001](docs/bug-reports/BUG-001-problem-user-detalhe-produto-errado.md) | `problem_user` abre detalhe de produto errado | Alta |
 
-Um dos objetivos do projeto é praticar o olhar de QA, ou seja, **encontrar comportamentos incorretos** e registrá-los em testes. Alguns testes falham de propósito enquanto o bug existir no site.
+O teste que comprova o bug **falha de propósito** enquanto o defeito existir no site.
 
-### `problem_user` abre os detalhes do produto errado
-
-Ao clicar em um produto na listagem, a página de detalhes exibe **outro produto**.
-
-- **Exemplo:** ao clicar em "Sauce Labs Backpack", a página mostra "Sauce Labs Fleece Jacket".
-- **Resultado esperado:** abrir os detalhes do produto que foi clicado.
-- **Resultado atual:** abre os detalhes de um produto diferente.
-
-O teste abaixo documenta o problema e **deve falhar enquanto esse comportamento persistir**:
-
-```js
-it('deve permitir abrir os detalhes do produto correto', () => {
-  cy.contains('.inventory_item_name', 'Sauce Labs Backpack')
-    .click();
-
-  cy.url().should('include', '/inventory-item.html');
-
-  cy.get('.inventory_details_name')
-    .should('be.visible')
-    .and('have.text', 'Sauce Labs Backpack');
-});
-```
-
-> A falha desse teste é **esperada**: ela comprova que o bug existe.
-
----
-
-## Próximos passos
-
-- [ ] Completar a cobertura de testes (produtos, checkout e usuários especiais)
-- [x] Comandos customizados (`cy.login()`) e *fixtures*
-- [X] Testes *data-driven*
-- [X] Integração contínua com GitHub Actions
-- [ ] Testes de API
-- [ ] Experimentar outras ferramentas de automação (Playwright, Selenium, entre outras)
-- [ ] Documentar casos de teste e relatórios de bug
-
----
-
-## Contribuições
-
-Sugestões são muito bem-vindas! Abra uma *issue* com a sua ideia ou envie um *pull request*. Vou adorar aprender com o seu feedback.
+## Roadmap
+- [x] Cypress E2E com comandos customizados, fixtures e data-driven
+- [x] CI com GitHub Actions
+- [x] Estratégia, plano, matriz de riscos e rastreabilidade
+- [x] Casos de teste e template de bug report
+- [ ] Completar cobertura (checkout e usuários especiais)
+- [ ] Testes de API (Postman + pytest/requests)
+- [ ] Selenium + Page Object Model
+- [ ] SQL: checagens de integridade e análise de performance
+- [ ] BDD com Gherkin
+- [ ] Plano de teste mobile (conexão instável em pagamento)
+- [ ] Experimento de IA aplicada a testes

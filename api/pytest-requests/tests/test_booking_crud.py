@@ -49,10 +49,21 @@ def test_update_booking_without_token_is_forbidden(client, created_booking):
 def test_delete_booking_then_get_returns_404(client, token, booking_payload):
     booking_id = client.create_booking(booking_payload).json()["bookingid"]
     resp = client.delete_booking(booking_id, token)
-    # O servico costuma responder 201 no DELETE (peculiaridade); aceitamos 200/201/204 e anotamos.
+    # O servico responde 201 (ver BUG-003). Aqui validamos o efeito: o booking some.
     assert resp.status_code in (200, 201, 204)
     assert client.get_booking(booking_id).status_code == 404
 
 
 def test_get_nonexistent_booking_returns_404(client):
     assert client.get_booking(99999999).status_code == 404
+
+
+@pytest.mark.known_bug
+@pytest.mark.xfail(
+    reason="BUG-003: DELETE responde 201 Created; esperado 204 (ou 200)",
+    strict=True,
+)
+def test_delete_booking_returns_204_or_200(client, token, booking_payload):
+    booking_id = client.create_booking(booking_payload).json()["bookingid"]
+    resp = client.delete_booking(booking_id, token)
+    assert resp.status_code in (200, 204)

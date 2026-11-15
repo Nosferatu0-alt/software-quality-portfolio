@@ -18,8 +18,8 @@ def test_auth_invalid_credentials_does_not_return_token(client):
 
 @pytest.mark.known_bug
 @pytest.mark.xfail(
-    reason="Servico responde 200 para credenciais invalidas; esperado 401 (confirmar e registrar como BUG)",
-    strict=False,
+    reason="BUG-002: /auth responde 200 para credenciais invalidas; esperado 401",
+    strict=True,  # se o servico for corrigido, o teste passa (XPASS) e a suite avisa
 )
 def test_auth_invalid_credentials_returns_401(client):
     resp = client.auth(ADMIN_USER, "senha-errada")

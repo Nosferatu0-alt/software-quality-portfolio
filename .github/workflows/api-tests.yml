@@ -1,0 +1,31 @@
+name: API Tests
+
+on:
+  push:
+    branches: [main]
+    paths: ["api/**"]
+  pull_request:
+    paths: ["api/**"]
+  schedule:
+    - cron: "0 12 * * 1"   # segunda, para detectar mudanca no servico de terceiros
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api/pytest-requests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: api/pytest-requests/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: python -m pytest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-report
+          path: api/pytest-requests/reports/

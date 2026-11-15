@@ -1,0 +1,4 @@
+firstname,lastname,totalprice,depositpaid,checkin,checkout,additionalneeds
+Lucia,Braga,150,true,2026-12-01,2026-12-05,Breakfast
+Maria,Reis,0,false,2026-12-10,2026-12-11,
+José,Çavalcante,99999,true,2027-01-01,2027-01-31,Late checkout

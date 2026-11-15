@@ -5,7 +5,7 @@
 
 Portfólio de **Qualidade de Software (QA)** de Lucia Maria Reis Braga, graduanda em Inteligência Artificial. Aqui pratico o raciocínio de teste de ponta a ponta: planejar, priorizar por risco, documentar, automatizar e reportar defeitos.
 
-> Busco estágio em QA / Teste de Software. Sugestões e críticas são bem-vindas: abra uma *issue* ou *pull request*.
+>  Sugestões e críticas são bem-vindas: abra uma *issue* ou *pull request*.
 
 ## O que este projeto demonstra
 | Habilidade | Onde ver |

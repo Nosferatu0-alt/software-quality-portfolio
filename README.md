@@ -7,6 +7,8 @@ Portfólio de **Qualidade de Software (QA)** de Lucia Maria Reis Braga, graduand
 
 >  Sugestões e críticas são bem-vindas: abra uma *issue* ou *pull request*.
 
+> 🚧 **Projeto em construção.** Este portfólio está sendo desenvolvido aos poucos: alguns documentos ainda têm lembretes e itens a preencher, e o [Roadmap](#roadmap) mostra o que já foi feito e o que vem a seguir.
+
 ## O que este projeto demonstra
 | Habilidade | Onde ver |
 |---|---|
@@ -54,9 +56,13 @@ Sem `make`: veja o README de cada pasta.
 Cypress 15 · Node.js · Python · pytest · requests · jsonschema · GitHub Actions · Mermaid
 
 ## Bugs identificados
-| ID | Resumo | Severidade |
-|---|---|---|
-| [BUG-001](docs/bug-reports/BUG-001-problem-user-detalhe-produto-errado.md) | `problem_user` abre detalhe de produto errado | Alta |
+| ID | Onde | Resumo | Severidade |
+|---|---|---|---|
+| [BUG-001](docs/bug-reports/BUG-001-problem-user-detalhe-produto-errado.md) | UI (SauceDemo) | `problem_user` abre detalhe de produto errado | Alta |
+| [BUG-002](docs/bug-reports/BUG-002-auth-credenciais-invalidas-retorna-200.md) | API (Restful-Booker) | `POST /auth` responde 200 para credenciais inválidas | Média |
+| [BUG-003](docs/bug-reports/BUG-003-delete-booking-retorna-201.md) | API (Restful-Booker) | `DELETE /booking/{id}` responde 201 Created | Baixa |
+
+Os bugs de API estão cobertos por testes `xfail` (strict), marcados com `known_bug`: se o serviço for corrigido, a suíte avisa. Lista completa e modelo de relatório em [`docs/bug-reports/`](docs/bug-reports/).
 
 ## Roadmap
 - [x] Cypress E2E (comandos customizados, fixtures, data-driven) + CI

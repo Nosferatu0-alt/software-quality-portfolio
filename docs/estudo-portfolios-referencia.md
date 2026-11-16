@@ -4,8 +4,8 @@ Quatro repositórios analisados em 13/11/2026 (leitura da página principal e do
 
 | Repositório | Ponto forte | O que adotamos | O que evitamos |
 |---|---|---|---|
-| **Sebastian Alatorre** | Mesmo sistema testado por 4 ferramentas, um pipeline por suíte, `docs/decisions`, Makefile, Docker | ADRs em `docs/decisions/`, Makefile, tabela "o que o projeto demonstra", diagrama de arquitetura | Docker/k6 por enquanto: ainda não é o nosso gargalo |
-| **Viktória Tóth** | Multi-módulo: o mesmo sistema por ângulos diferentes (API em 4 stacks, UI, mobile web, performance); comandos de execução na raiz; notas de ambiente | Estrutura por módulo, comandos de execução padronizados, seção de notas de ambiente, Postman + Newman | Gradle e Java/REST Assured: fora do nosso stack |
+| **Sebastian Alatorre** | Mesmo sistema testado por 4 ferramentas, um pipeline por suíte, `docs/decisions`, Makefile, Docker | ADRs em `docs/decisions/`, Makefile, tabela "o que o projeto demonstra", diagrama de arquitetura | Docker/k6 por enquanto: ainda não é o foco |
+| **Viktória Tóth** | Multi-módulo: o mesmo sistema por ângulos diferentes (API em 4 stacks, UI, mobile web, performance); comandos de execução na raiz; notas de ambiente | Estrutura por módulo, comandos de execução padronizados, seção de notas de ambiente, Postman + Newman | Gradle e Java/REST Assured: fora do stack |
 | **Lili Imerlishvili** | Documentação de QA em volume (casos, cenários, checklists, RTM, planos, relatórios); organização por domínio | Pasta de relatórios de execução, checklists, padrão de documentação por projeto, aviso de confidencialidade | Escala (27+ projetos): para nós, qualidade acima de quantidade |
 | **Yogeshhs QA** | Framework de API com camada de serviço, JSON Schema, asserts customizados, limpeza de dados, dados em CSV/JSON | Camada de serviço, JSON Schema, CSV, limpeza automática (já implementados em `api/`) | Notas "9.8/10", "valor de US$ 27 mil", "nível sênior" e placeholders `[Your Name]` no README: soam inflados e enfraquecem a credibilidade |
 
